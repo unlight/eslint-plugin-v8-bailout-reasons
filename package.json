@@ -1,0 +1,39 @@
+{
+  "name": "eslint-plugin",
+  "version": "0.0.0",
+  "description": "",
+  "license": "Xnet",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "clean": "rm -rf lib",
+    "compile": "tsc",
+    "compile:w": "tsc --watch",
+    "tsn": "ts-node -F",
+    "mocha": "cross-env TS_NODE_FAST=1 mocha --compilers ts:ts-node/register",
+    "test": "npm run t",
+    "t": "npm run mocha -- src/**/*.spec.ts",
+    "test:w": "npm run t -- --watch",
+    "release": "npm run clean && npm run compile",
+    "~dev": "npm run compile && concurrently -r -k -p \"{name}:\" -n \"c,t\" \"npm run compile:w\" \"npm run test:w\""
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.8",
+    "cross-env": "^3.2.4",
+    "mocha": "^3.2.0",
+    "ts-node": "^2.1.0",
+    "typescript": "^2.2.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=3.6"
+  }
+}
