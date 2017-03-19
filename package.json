@@ -11,7 +11,7 @@
     "compile": "tsc",
     "compile:w": "tsc --watch",
     "tsn": "ts-node -F",
-    "mocha": "cross-env TS_NODE_FAST=1 mocha --compilers ts:ts-node/register",
+    "mocha": "npm run tsn -- node_modules/mocha/bin/_mocha",
     "test": "npm run t",
     "t": "npm run mocha -- src/**/*.spec.ts",
     "test:w": "npm run t -- --watch",
@@ -28,7 +28,6 @@
   "devDependencies": {
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.8",
-    "cross-env": "^3.2.4",
     "mocha": "^3.2.0",
     "ts-node": "^2.1.0",
     "typescript": "^2.2.1"
